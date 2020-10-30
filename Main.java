@@ -8,25 +8,24 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         scanner.useLocale(Locale.US);
-        String exitChar = "x";
+        String exitChar = "q";
         boolean exitProgram = false;
         do {
-            exitProgram = calculation(scanner);
+            exitProgram = calculation(scanner, exitChar);
         } while (!exitProgram);
     }
 
-    static Boolean calculation(Scanner sc) {
+    static Boolean calculation(Scanner sc, String exitChar) {
         String first, second;
         System.out.println("First:");
         first = sc.nextLine();
         System.out.println("Second:");
         second = sc.nextLine();
-        System.out.println("Enter operation:");
-        String operator = sc.nextLine();
-
-        if (first.equals("x") || second.equals("x")) {
+        if (first.equals(exitChar) || second.equals(exitChar)) {
             return true;
         }
+        System.out.println("Enter operation:");
+        String operator = sc.nextLine();
         results(first, second, operator);
         return false;
     }
